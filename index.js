@@ -87,8 +87,8 @@ async function run() {
         // PUT api to make admin
         app.put("/users", async (req, res) => {
             const user = req.body;
-            console.log("put", user);
             const filter = { email: user.email };
+            console.log("put", filter);
             const updateDoc = { $set: { role: "admin" } };
             const result = await usersCollection.updateOne(filter, updateDoc);
             res.json(result);
